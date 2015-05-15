@@ -1,3 +1,5 @@
 test:
+  override:
+    - npm run circle_test
   post:
     - mv ./coverage $CIRCLE_ARTIFACTS

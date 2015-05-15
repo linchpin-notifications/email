@@ -1,5 +1,6 @@
 var config = require('./config');
-var mandrill = require('node-mandrill')(config.mandrill.api_key);
+var mandrill = require('mandrill-api/mandrill');
+var mandrill_client = new mandrill.Mandrill(config.mandrill.api_key);
 var schemas = require('./commands');
 var Handlebars = require('handlebars');
 
@@ -82,32 +83,26 @@ module.exports = function(options) {
         email.async = true;
         console.log('sending email - %j',email);
 
-        mandrill('/messages/send', email, function(error, response)
+        mandrill_client.messages.send(email, function(result)
         {
-            //uh oh, there was an error
-            if (error) {
-                console.log( JSON.stringify(error) );
-                callback('error_sending_email');
-            }
-
-            //everything's good, lets see what mandrill said
-            console.log(response);
-            callback(null);
+            // just log the response
+            console.log(result);
         });
+        callback(null);
     }
 
     function getEmailArray(email){
-        var array = [];
+        var recipients = [];
 
         if(email["recipients"].constructor !== Array){
             email.recipients = [email.recipients];
         }
 
         email.recipients.forEach(function(item){
-            array.push({email:item});
+            recipients.push({email:item});
         });
 
-        return array;
+        return recipients;
     }
 
 
