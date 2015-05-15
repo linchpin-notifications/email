@@ -1,0 +1,33 @@
+{
+  "sendEmail":{
+    "email":"$ref:#definitions/email"
+  },
+  "sendEmailHandlebars":{
+    "email":"$ref:#definitions/email"
+  },
+  ".definitions":{
+    "title": "Email Notification",
+    "description": "Config for a sending an email",
+    "LpConfig":"Notifications/email",
+    "type": "object",
+    "properties": {
+      "email":{
+        "type":"object",
+        "properties":{
+          "recipients": {
+            "$ref":"../Email"
+          },
+          "body": {
+            "type": "string"
+          },
+          "subject":{
+            "type":"string"
+          }
+        },
+        "required": ["recipients", "body", "subject"],
+        "additionalProperties": false
+      }
+    },
+    "required":["email"]
+  }
+}
