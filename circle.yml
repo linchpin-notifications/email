@@ -1,0 +1,3 @@
+test:
+  post:
+    - mv ./coverage $CIRCLE_ARTIFACTS
