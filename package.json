@@ -33,6 +33,7 @@
     "istanbul": "^0.3.13",
     "chai": "2.3.0",
     "mocha": "*",
-    "async": "*"
+    "async": "*",
+    "mocha-junit-reporter":"*"
   }
 }
