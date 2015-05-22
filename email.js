@@ -85,10 +85,9 @@ module.exports = function(options) {
 
         mandrill_client.messages.send(email, function(result)
         {
-            // just log the response
-            console.log(result);
+            var out = {status:"sent",response:result};
+            callback(null, out);
         });
-        callback(null);
     }
 
     function getEmailArray(email){

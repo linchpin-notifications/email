@@ -1,5 +1,4 @@
 var assert = require("chai").assert; // node.js core module
-var getenv = require('getenv');
 
 describe('email',function(){
 
@@ -19,7 +18,7 @@ describe('email',function(){
 
             seneca.act(req, function(err,result){
                 assert.isNull(err);
-                assert.isUndefined(result);
+                assert.equal(result.status,"sent");
                 done();
             });
         })
