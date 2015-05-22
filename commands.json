@@ -1,23 +1,27 @@
 {
   "sendEmail":{
     "title":"Send an Email",
-    "description":"Sends and Email using LinchPin's infrastructure",
+    "description":"Sends an Email using LinchPin's infrastructure",
     "properties":{
-      "email":"$ref:#definitions/email"
+      "email": {
+        "$ref":"#/definitions/email"
+      }
     }
   },
   "sendEmailHandlebars":{
     "title":"Send an Email using a HandleBars template",
-    "description":"Sends and Email using LinchPin's infrastructure. The body variable is a HandlerBars template and it renders event data passed in.",
+    "description":"Sends an Email using LinchPin's infrastructure. The body variable is a HandlerBars template and it renders event data passed in.",
     "properties":{
-      "email":"$ref:#definitions/email"
+      "email": {
+        "$ref":"#/definitions/email"
+      }
     }
   },
   ".definitions":{
     "email": {
       "type": "object",
       "title": "Email Definition",
-      "description": "Config for a sending an email",
+      "description": "Config for sending an email",
       "LpConfig": "Notifications/email",
       "properties": {
         "recipients": {
