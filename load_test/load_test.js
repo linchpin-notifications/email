@@ -1,5 +1,6 @@
 var assert = require("chai").assert; // node.js core module
 var async = require('async');
+var rnd = require("randomstring");
 
 
 describe('email',function(){
@@ -8,18 +9,21 @@ describe('email',function(){
     seneca.use('..');
 
     describe('sendEmail',function(){
-        it.skip('should send 10 emails in less than 5 seconds',function(done){
+        it('should send 50 emails in less than 5 seconds',function(done){
             this.timeout(5000);
 
-            var emails = new Array(10);
+            var emails = new Array(50);
+            var id = rnd.generate(7);
+
+            console.log("Running with id " + id);
 
             async.each(emails,
                 function(item, callback){
                     var req =  {lpn:'email', cmd:'sendEmail', config:{
                         email:{
-                            recipients:"test@linchpin.io",
+                            recipients:"isaac@linchpin.io",
                             body:"This is a massive email",
-                            subject:"Massive email - Load Test"
+                            subject:"Massive email - Load Test " + id
                         }
                     }};
 

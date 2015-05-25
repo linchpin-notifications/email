@@ -4,6 +4,7 @@
   "description": "LinchPin email notifications",
   "main": "email.js",
   "scripts": {
+    "load":"./node_modules/mocha/bin/_mocha load_test",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha  -- --reporter mocha-junit-reporter",
     "circle_test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha  -- --reporter mocha-junit-reporter && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js "
   },
@@ -34,6 +35,7 @@
     "chai": "2.3.0",
     "mocha": "*",
     "async": "*",
-    "mocha-junit-reporter": "*"
+    "mocha-junit-reporter": "*",
+    "randomstring": "^1.0.5"
   }
 }
