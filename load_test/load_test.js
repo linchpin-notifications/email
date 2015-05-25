@@ -29,8 +29,7 @@ describe('email',function(){
 
                     seneca.act(req, function(err,result){
                         assert.isNull(err);
-                        console.log(result);
-                        //assert.isUndefined(result);
+                        console.log("%j",result);
                         callback(null);
                     });
                 },

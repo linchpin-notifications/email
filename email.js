@@ -83,9 +83,11 @@ module.exports = function(options) {
         email.async = true;
         console.log('sending email - %j',email);
 
+        var start = new Date();
         mandrill_client.messages.send(email, function(result)
         {
-            var out = {status:"sent",response:result};
+            var end = new Date() - start;
+            var out = {status:"sent",response:result, time:end};
             callback(null, out);
         });
     }
