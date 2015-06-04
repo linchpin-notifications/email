@@ -23,6 +23,7 @@ module.exports = function(options) {
 
     lpis.add({lpn:'email',cmd:'sendEmail'},sendEmail);
     lpis.add({lpn:'email',cmd:'sendEmailHandlebars'},sendEmailHandlebars);
+    lpis.add({lpn:'email',cmd:'rateLimitExceeded'},rateLimitExceeded);
 
     return {
         name:'email'
@@ -45,7 +46,7 @@ module.exports = function(options) {
                 to: to,
                 from_email: config.email.from,
                 subject: email.subject,
-                text: email.body
+                html: email.body
             }
         }, done);
     }
@@ -72,10 +73,29 @@ module.exports = function(options) {
                 to: to,
                 from_email: config.email.from,
                 subject: email.subject,
-                text: email.body
+                html: email.body
             }
         }, done);
 
+    }
+
+    function rateLimitExceeded(args, done){
+        var email = args.config.email;
+
+        if(!email.hasOwnProperty("recipients")){
+            return done("Missing recipients");
+        }
+
+        var to = getEmailArray(email);
+
+        send({
+            message: {
+                to: to,
+                from_email: config.email.from,
+                subject: "'): Too many events triggering alert!",
+                template_name: "rate-limit-exceeded"
+            }
+        }, done);
     }
 
     function send(email, callback){
