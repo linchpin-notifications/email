@@ -22,7 +22,7 @@
       "type": "object",
       "title": "Email Definition",
       "description": "Config for sending an email",
-      "LpConfig": "Notifications/email",
+      ".linchpin": "Notifications/email",
       "properties": {
         "recipients": {
           "$ref": "../Email"

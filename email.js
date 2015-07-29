@@ -115,11 +115,7 @@ module.exports = function(options) {
     function getEmailArray(email){
         var recipients = [];
 
-        if(email["recipients"].constructor !== Array){
-            email.recipients = [email.recipients];
-        }
-
-        email.recipients.forEach(function(item){
+        email.recipients.emails.forEach(function(item){
             recipients.push({email:item});
         });
 

@@ -10,7 +10,7 @@ describe('email',function(){
             this.timeout(3000);
             var req =  {lpn:'email', cmd:'sendEmail', config:{
                 email:{
-                    recipients:"isaac@linchpin.io",
+                    recipients:{name:"Isaac",emails:["isaac@linchpin.io"]},
                     body:"this is a test",
                     subject:"this is a subject"
                 }
