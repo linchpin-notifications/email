@@ -25,7 +25,7 @@
       ".linchpin": "Notifications/email",
       "properties": {
         "recipients": {
-          "$ref": "../Email"
+          "$ref": "../email_list"
         },
         "body": {
           "type": "string"
