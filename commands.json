@@ -28,10 +28,12 @@
           "$ref": "../email_list"
         },
         "body": {
-          "type": "string"
+          "type": "string",
+          "title":"Email body"
         },
         "subject": {
-          "type": "string"
+          "type": "string",
+          "title":"Subject"
         }
       },
       "required": [
