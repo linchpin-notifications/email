@@ -4,7 +4,7 @@
     "description":"Sends an Email using LinchPin's infrastructure",
     "properties":{
       "email": {
-        "$ref":"#/definitions/email"
+        "$ref":"#/definitions/email_config"
       }
     }
   },
@@ -13,19 +13,19 @@
     "description":"Sends an Email using LinchPin's infrastructure. The body variable is a HandlerBars template and it renders event data passed in.",
     "properties":{
       "email": {
-        "$ref":"#/definitions/email"
+        "$ref":"#/definitions/email_config"
       }
     }
   },
   ".definitions":{
-    "email": {
+    "email_config": {
       "type": "object",
       "title": "Email Definition",
       "description": "Config for sending an email",
-      ".linchpin": "Notifications/email",
+      ".linchpin": "notifications/email/config",
       "properties": {
         "recipients": {
-          "$ref": "../email_list"
+          "$ref": "/schema/email_list"
         },
         "body": {
           "type": "string",
