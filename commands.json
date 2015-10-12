@@ -6,7 +6,9 @@
       "email": {
         "$ref":"#/definitions/email_config"
       }
-    }
+    },
+    "additionalProperties": false,
+    "required":["email"]
   },
   "sendEmailHandlebars":{
     "title":"Send an Email using a HandleBars template",
@@ -15,7 +17,9 @@
       "email": {
         "$ref":"#/definitions/email_config"
       }
-    }
+    },
+    "additionalProperties": false,
+    "required":["email"]
   },
   ".definitions":{
     "email_config": {
