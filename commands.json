@@ -1,5 +1,6 @@
 {
   "sendEmail":{
+    "type":"object",
     "title":"Send an Email",
     "description":"Sends an Email using LinchPin's infrastructure",
     "properties":{
@@ -11,6 +12,7 @@
     "required":["email"]
   },
   "sendEmailHandlebars":{
+    "type":"object",
     "title":"Send an Email using a HandleBars template",
     "description":"Sends an Email using LinchPin's infrastructure. The body variable is a HandlerBars template and it renders event data passed in.",
     "properties":{
